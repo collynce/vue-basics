@@ -12,20 +12,33 @@
                 My slot span
             </template>
         </Slots>
-
+      <ChildComponent @show-alert="myAlert"></ChildComponent>
     </div>
 </template>
 
 <script>
     import Index from './components/Index.vue'
     import Slots from './components/Slots'
-
+    import ChildComponent from "./components/ChildComponent";
     export default {
         name: 'app',
         components: {
             Index,
-            Slots
+            Slots,
+            ChildComponent
+        },
+      data(){
+        return{
+          Color: {
+            background:'red'
+          }
         }
+      },
+      methods:{
+          myAlert(){
+            alert('This is an event from the child component')
+          }
+      }
     }
 </script>
 
